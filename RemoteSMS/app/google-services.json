@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1041447071111",
+    "firebase_url": "https://remotesms-98b2a.firebaseio.com",
+    "project_id": "remotesms-98b2a",
+    "storage_bucket": "remotesms-98b2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041447071111:android:074a765506882597163722",
+        "android_client_info": {
+          "package_name": "com.example.remotesms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041447071111-p3m8ktptu24evkh9j9jd4rtjm7m12sk4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.remotesms",
+            "certificate_hash": "030b36305ec42e2b42b32b42a2bb4b743fac2e4a"
+          }
+        },
+        {
+          "client_id": "1041447071111-midbsg9eo416ajguqdvv2cprps0cj2d1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2XglaHS4NSfd3BBv1IL9LwXJCDWRwJ40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041447071111-midbsg9eo416ajguqdvv2cprps0cj2d1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

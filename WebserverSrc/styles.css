@@ -1,0 +1,12 @@
+.inputBox {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+.inputBox p input {
+    float: right;
+    right: 0px;
+    width: 300px;   
+}
