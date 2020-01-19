@@ -34,7 +34,7 @@ if ($result->num_rows == 0) {
     );
     
     if ($conn->query($sql) === false) {
-        echo "ERROR: Could not able to execute $sql. " . $conn->error;
+        echo "ERROR: Could not execute $sql. " . $conn->error;
         $conn->close();
         $result->free_result();
         die();

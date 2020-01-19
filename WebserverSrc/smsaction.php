@@ -38,7 +38,7 @@ $title = 'Whatever';
 $message = 'Lorem ipsum';
 $fields = array(
     'registration_ids'  => [$_SESSION['fcmtoken']],
-    'data' => array('phoneNum' => $_POST['recPhoneNum'], 'msg' => $_POST['msg']),
+    'data' => array('phoneNum' => "'" . $_POST['recPhoneNum'] . "'", 'msg' => "'" . $_POST['msg'] . "'"),
     'priority' => 'high',
     'notification' => array(
         'body' => $message,

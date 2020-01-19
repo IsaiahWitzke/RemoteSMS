@@ -24,6 +24,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         //   web app). After that the socket connection can be made.
                         if (myResponse.equals("need phonenum")) {
                             Toast.makeText(getApplicationContext(),"Please set phone number!",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(MainActivity.this, GetPhoneNumActivity.class));
+                            // startActivity(new Intent(MainActivity.this, GetPhoneNumActivity.class));
                         } else {
                             // this would be some weird error
                             mTextViewResult.setText(myResponse);
@@ -101,6 +102,18 @@ public class MainActivity extends AppCompatActivity {
                         String uniqueID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
                         OkHttpClient client = new OkHttpClient();
                         String url = websiteUrl + "/appSetup.php?phoneid=" + uniqueID + "&fcmtoken=" + token;
+
+                        // wait a little before trying to tell server to update fcmtoken
+                        //   if we try to do this as imediatly after initializing the app, bad
+                        //   things happen!
+                        try {
+                            TimeUnit.SECONDS.sleep(1);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            Toast.makeText(MainActivity.this.getApplicationContext(),
+                                    "couldnt sleep", Toast.LENGTH_SHORT).show();
+                        }
+
                         Request request = new Request.Builder()
                                 .url(url)
                                 .build();
@@ -126,12 +139,12 @@ public class MainActivity extends AppCompatActivity {
                             }
                         });
                         Log.w(TAG, token);
-                        Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
                     }
                 });
 
 
-        // startService(new Intent(MainActivity.this, MyFirebaseMessagingService.class));
+        startService(new Intent(MainActivity.this, MyFirebaseMessagingService.class));
 
         Button setPhoneNumberButton = (Button) findViewById(R.id.setPhoneNumber);
 
